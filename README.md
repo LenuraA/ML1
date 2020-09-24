@@ -47,3 +47,4 @@ NN = function(xl, data, k=dist)
    sorted[1,features+1]
  }
  ```
+
