@@ -1,0 +1,47 @@
+```R
+dist = function(u, v) { #функция возвращает эвклидовое расстояние между двумя объектами
+    sqrt(sum((u-v)^2))
+  }
+  distances = function(xl, data, m) {
+  cases = dim(data)[1]
+  features = dim(data)[2]-1
+  dists = matrix(0, cases, 2) # создаем матрицу расстояний 
+    for (i in 1:cases) {
+      cost = m(xl, data[i,1:features])
+      dists[i,] = c(cost, i)
+    }
+    idx = order(dists[,1])
+    data[dists[idx,2],]
+  }
+ kNN = function(xl, data, k, m=dist) { # находим k-ближайших соседей  
+ sorted = distances(xl, data, m)
+   
+   n = 10 
+   counts = rep(0, times=n)
+ features = dim(data)[2]-1
+ for (i in 1:k) {
+     cls = sorted[i,features+1]
+     counts[cls] = counts[cls] + 1
+   }
+   argmax = 1
+   for (i in n) {
+     if (counts[argmax] < counts[i]) {
+       argmax = i
+     }
+   }
+   
+   cls[argmax]
+ }
+ points = rbind(#классификация точек
+  c(5.5, 2),
+  c(2, 0.5),
+  c(2, 1),
+  c(2.5, 1)
+  )
+ features = dim(data)[2]-1
+  plot(data[,1], data[,2], col=colors[data[,features+1]], xlab="kNN", ylab="")
+  for (i in 1:dim(points)[1]) {
+  pt = points[i,]
+ points(pt[1], pt[2], col=colors[kNN(pt, data, 7)], pch=19) 
+ }
+```
