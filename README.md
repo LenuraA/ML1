@@ -47,4 +47,6 @@ NN = function(xl, data, k=dist)
    sorted[1,features+1]
  }
  ```
+ 
+ ![screenshot of sample](https://github.com/LenuraA/ML1/blob/master/1.1nn.png)
 
