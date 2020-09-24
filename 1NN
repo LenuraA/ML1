@@ -1,0 +1,33 @@
+```R
+dist = function(u, v) { # функция возвращает эвклидовое расстояние между двумя объектами
+   sqrt(sum((u-v)^2))
+ }
+ distances = function(xl, data, k) { # возвращает отсортированный набор данных по метрике для объекта 
+ cases = dim(data)[1]
+ features = dim(data)[2]-1
+ dists = matrix(0, cases, 2) # создаем матрицу расстояний 
+   for (i in 1:cases) {
+     cost = k(xl, data[i,1:features])
+     dists[i,] = c(cost, i)
+   }
+   idx = order(dists[,1])
+   data[dists[idx,2],]
+ }
+NN = function(xl, data, k=dist)
+ {
+ sorted = distances(xl, data, k)
+   sorted[1,features+1]
+ }
+ points = rbind(#классификация точек 
+ c(5.5, 2),
+ c(2, 0.5),
+ c(2, 1),
+ c(2.5, 1)
+ )
+features = dim(data)[2]-1
+ plot(data[,1], data[,2], col=colors[data[,features+1]], xlab="1NN", ylab="")
+ for (i in 1:dim(points)[1]) {
+ pt = points[i,]
+ points(pt[1], pt[2], col=colors[NN(pt, data)], pch=19, asp=1)
+ }
+ ```
