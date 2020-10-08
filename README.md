@@ -96,5 +96,39 @@ kNN = function(xl, data, k, m=dist) { # находит k-ближайших со
 
 При минимальном значении LOO получим оптимальный параметр алгоритма.
 
+```R
+LOO = function(xl,class) {
+  n = dim(xl)[1];
+  loo = rep(0, n-1) 
+  
+    for(i in 1:n){
+      X=xl[-i, 1:3]
+      u=xl[i, 1:2]
+      orderedXl <- sortObjectsByDist(X, u)
+      
+      for(k in 1:(n-1)){
+        
+        test=knn(X,u,k,orderedXl)
+        if(colors[test] != colors[class[i]]){
+          loo[k] = loo[k]+1;
+        
+      }
+    } 
+    }
+  
+  loo = loo / n
+  x = 1:length(loo)
+  y = loo
+  plot(x, y,main ="LOO for KNN(k)", xlab="k", ylab="LOO", type = "l")
+
+  min = which.min(loo)
+  lOOmin=round(loo[min],3)
+  points(min, loo[min], pch = 21, col = "red",bg = "red")
+  label = paste("   K = ", min, "\n", "   LOO = ", lOOmin, sep = "")
+  xmin = 3*min;
+  text(xmin, lOOmin, labels = label, pos = 3, col = "red")
+  map(min);
+}
+```
 
 ![screenshot of sample](https://github.com/LenuraA/ML1/blob/master/LOO.png)
