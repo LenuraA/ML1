@@ -215,3 +215,4 @@ parzen <- function(xl, h, distances, kernelFunction = kernel.G) {
   return (0) # Иначе вернуть 0
 }
 ```
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/формула13.png)
