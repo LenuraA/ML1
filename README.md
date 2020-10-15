@@ -198,4 +198,20 @@ K  взвешенных ближайших соседей - это метрич�
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/формула11.png)
 
 где ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/функция12.png)
-   
+```R
+parzen <- function(xl, h, distances, kernelFunction = kernel.G) {
+  
+  n <- ncol(xl)
+  classes <- xl[1:l, n]
+  weights <- table(classes) # Таблица для весов классов
+  weights[1:length(weights)] <- 0
+  for (i in 1:l) { # Для каждого объекта выборки
+    class <- xl[i, n] # Берём его класс
+    r <- distances[i] / h
+    weights[class] <- weights[class] + kernelFunction(r) # И прибавляем его вес к общему весу его класса
+  }
+  if (max(weights) != 0) # Если точке присвоились какие-нибудь веса классов (точка попала в окно)
+    return (names(which.max(weights))) # Вернуть класс с максимальным весом
+  return (0) # Иначе вернуть 0
+}
+```
