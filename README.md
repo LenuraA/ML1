@@ -43,7 +43,8 @@
     </tr>
 	  </tbody>
    </table>
- ## Алгоритм 1NN
+
+## Алгоритм 1NN
 
 Алгоритм ближайшего соседа - 1NN  относит классифицируемый объект ![screenshot of sample](https://github.com/LenuraA/ML1/blob/master/формула1.png) к тому классу , к которому относится его ближайший сосед.
  ![screenshot of sample]( https://github.com/LenuraA/ML1/blob/master/формула2.png) 
