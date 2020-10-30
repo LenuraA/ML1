@@ -272,5 +272,14 @@ parzen <- function(xl, h, distances, kernelFunction = kernel.G) {
 5.Иначе присоединить ко множеству эталонов объекты с наименьшим отступом из каждого класса из числа классифицированных неправильно.
 
 6.Повторять шаги 3-5 до тех пор, пока множество эталонов и обучающая выборка не совпадут, или не сработает проверка в пункте 4.
-
+Реализация функция для нахождения отступа.
+```R
+margin = function(points,classes,point,class){
+Myclass = points[which(classes==class), ]
+OtherClass = points[which(classes!=class), ]
+MyMargin = Parzen(Myclass,point[1:2],1,FALSE)
+OtherMargin = Parzen(OtherClass,point[1:2],1,FALSE)
+return(MyMargin-OtherMargin)
+}
+```
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/stolp.png)
