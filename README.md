@@ -243,7 +243,16 @@ parzen <- function(xl, h, distances, kernelFunction = kernel.G) {
   return (0) # Иначе вернуть 0
 }
 ```
-![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула11.png)
+Прямоугольное ядро:
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/пр.png)
+Треугольное ядро:
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/тр.png)
+Ядро Епанечникова:
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/еп.png)
+Квадратичное ядро:
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/кв.png)
+Гауссовское ядро:
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/гс.png)
 
 
 
