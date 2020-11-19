@@ -296,6 +296,7 @@ return(MyMargin-OtherMargin)
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/stolp.png)
 
 Отступ для парзвеновского окна:
+
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/отступ.png)
 
 ```R
