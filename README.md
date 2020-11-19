@@ -294,3 +294,25 @@ return(MyMargin-OtherMargin)
 }
 ```
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/stolp.png)
+
+Отступ для парзвеновского окна:
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/отступ.png)
+
+```R
+ badpoints = which(margins < 0)
+  badmargins = rep(0,length(badpoints))
+  for (i in 1:length(badpoints)){
+    badmargins[i]=margins[badpoints[i]]
+  }
+  
+  badmargins = rev(sort(badmargins))
+  print(badmargins)
+ for (i in 2:length(badpoints)){
+ vubros<-0
+ if(abs(badmargins[i]-badmargins[i-1])>1)
+    {
+      vubros=i
+      print(badmargins[vubros])
+    }
+  }
+  ```
