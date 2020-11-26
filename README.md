@@ -254,7 +254,40 @@ parzen <- function(xl, h, distances, kernelFunction = kernel.G) {
 Гауссовское ядро:
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/гс.png)
 
+### Метод потенциальных функций 
 
+Пусть дана обучающая выборка *xl* и объект *z*, который требуется классифицировать. 
+Тогда:
+1. Для каждого объекта выборки задаётся ширина окна *hi* (выбирается из собственных соображений).
+2. Для каждого объекта выборки задаётся сила потенциала ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2019.png). 
+3. Каждому объекту выборки присваивается вес по формуле ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2020.png), *K(r)*-функция ядра.
+4. Суммируются веса объектов одинаковых классов. Класс с самым большим весом присваивается объекту *z*.
+
+Программная реализация метода потенциальных функций:
+```R
+pF <- function(distances, potentials, h, xl, kernelFunction = kernel.G) {
+  l <- nrow(xl)
+  n <- ncol(xl)
+  classes <- xl[, n]
+  weights <- table(classes) # Таблица для весов классов
+  weights[1:length(weights)] <- 0 # По умолчанию все веса равны нулю
+  for (i in 1:l) { # Для каждого объекта выборки
+    class <- xl[i, n] # Берется его класс
+    r <- distances[i] / h[i]
+    weights[class] <- weights[class] + potentials[i] * kernelFunction(r) 
+  }
+  if (max(weights) != 0) return (names(which.max(weights))) 
+  return ("") # Если точка не проклассифицировалась, то вернуть пустую строку
+}
+```
+### *Достоинства алгоритма:*
+1. Большое количество параметров для подбора.
+2. После настройки силы потенциалов, объекты выборки с нулевыми потенциалами можно не использовать при классификации. Благодаря этому - высокая скорость работы.
+
+### *Недостатки алгоритма:*
+1. Слишком грубая настройка параметров *hi* и ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2019.png) .
+2. Неопределённое время работы алгоритма подбора gamma_i.
+3. При случайном выборе объектов из выборки при подборе ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2019.png), результат работы на одной и той же выборке будет разным.
 
 ### Алгоритм (STOLP)
 
