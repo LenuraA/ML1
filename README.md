@@ -281,7 +281,7 @@ pF <- function(distances, potentials, h, xl, kernelFunction = kernel.G) {
 }
 ```
 
-![screenshot of sample](://github.com/ZaraL3/ML1/blob/master/image/PF.png)
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/PF.png)
 
 ### *Достоинства алгоритма:*
 1. Большое количество параметров для подбора.
