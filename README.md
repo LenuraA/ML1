@@ -373,6 +373,7 @@ pF <- function(distances, potentials, h, xl, kernelFunction = kernel.G) {
 
 Это метод классификации, основанный на параметрическом подходе, специальный случай, при котором плотности распределения всех классов полагаются многомерными нормальными.
 Функция плотности многомерного нормального распределения выглядит следующим образом: ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2016.png), где 
+
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2017.png)-объект, состоящий из *n* признаков
 
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2018.png)-мат. ожидание каждого признака
@@ -381,8 +382,9 @@ pF <- function(distances, potentials, h, xl, kernelFunction = kernel.G) {
 
 ## Линии уровня нормального распределения
 
-1.Если признаки некоррелированы, т. е. матрица ковариации диагональна, то линии уровня имеют форму эллипсоидов, параллельных осям координат, вытянутых относительно признака.![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line1.png)
+1.Если признаки некоррелированы, т. е. матрица ковариации диагональна, то линии уровня имеют форму эллипсоидов, параллельных осям координат, вытянутых относительно признака.   
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line1.png)
 
-2. Если признаки имеют одинаковые дисперсии, тогда эллипсоиды являются сферами.![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line2.png)
+2. Если признаки имеют одинаковые дисперсии, тогда эллипсоиды являются сферами.  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line2.png)
 
-3.Если признаки коррелированы, то есть матрица ковариации не диагональна, то линии уровня имеют форму эллипсоидов, наклонённых относительно осей координат.![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line3.png)
+3.Если признаки коррелированы, то есть матрица ковариации не диагональна, то линии уровня имеют форму эллипсоидов, наклонённых относительно осей координат.  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line3.png)
