@@ -387,4 +387,5 @@ pF <- function(distances, potentials, h, xl, kernelFunction = kernel.G) {
 
 2. Если признаки имеют одинаковые дисперсии, тогда эллипсоиды являются сферами.  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line2.png)
 
-3.Если признаки коррелированы, то есть матрица ковариации не диагональна, то линии уровня имеют форму эллипсоидов, наклонённых относительно осей координат.  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line3.png)
+3.Если признаки коррелированы, то есть матрица ковариации не диагональна, то линии уровня имеют форму эллипсоидов, наклонённых относительно осей координат.  
+ ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Line3.png)
