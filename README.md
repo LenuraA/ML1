@@ -57,7 +57,7 @@
 [Оглавление](#Оглавление)
 
 ## Алгоритм 1NN
-[Оглавление](#Оглавление)
+
 
 Алгоритм ближайшего соседа - 1NN  относит классифицируемый объект ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула1.png) к тому классу , к которому относится его ближайший сосед.
  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула2.png) 
@@ -106,7 +106,7 @@ NN = function(xl, data, k=dist)
  
  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/1.1nn.png)
 
-
+[Оглавление](#Оглавление)
 
 
 ## Алгоритм k ближайших соседей 
