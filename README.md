@@ -1,6 +1,7 @@
 # Оглавление
 1. [Метрические алгоритмы](#Метрические)
 1. [Алгоритм 1NN](#1NN)
+1. [Алгоритм k ближайших соседей ](#KNN)
 
 <center>
 <table>
@@ -53,7 +54,7 @@
 	  
    </table>
 
-<a name="Метрические"></a>
+<a name="Алгоритм 1NN"></a>
 
 ## Алгоритм 1NN
 
@@ -104,7 +105,7 @@ NN = function(xl, data, k=dist)
  
  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/1.1nn.png)
 
-
+<a name="Алгоритм k ближайших соседей "></a>
 ## Алгоритм k ближайших соседей 
  Алгоритм k ближайших соседей – kNN относит объект *u* к тому классу,
 элементов которого больше среди *k* ближайших соседей  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула6.png)
