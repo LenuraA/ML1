@@ -625,6 +625,7 @@ ldf = function(x, classes, probs, mus, covinv, covdet) {
 Затем запускается итерационный процесс, на каждом шаге которого вектор w изменяется в сторону наиболее быстрого убывания *Q*. Это направление противоположно вектору градиента 
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2050.png). 
 Соответственно веса меняются по правилу:
+
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2051.png)
 
 или
@@ -635,4 +636,45 @@ ldf = function(x, classes, probs, mus, covinv, covdet) {
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2053.png)
 
  
+ ## Логистическая регрессия
  
+Является-оптимальный байесовским классификатором.
+
+Имеет логистическую функцию потерь ![screenshot of sample]( https://github.com/ZaraL3/ML1/blob/master/image/формула%2054.png)  и логистическое правило обновления весов
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2055.png)  , где ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2056.png)  – сигмоидная функция.
+
+Испульзуем метод градиентного спуска, написанный ранее. Используем “Bias Trick” для обучения параметра w0.
+
+Напомним что количество очков, даваемое классу, определяется как:
+
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2057.png)
+
+Тогда создадим вектор
+
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2058.png)
+
+И обучим с решающим правилом:
+
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2059.png)
+
+Тогда в итоге получим:
+
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2060.png)
+
+Обучив параметры w, можно написать решающее правило:
+```R
+class = function(w,x) {
+  sign(sum(w*x))
+}
+
+a = function(w, x) {
+  x[n+1] = 1
+  c = class(w,x)
+  if (c == 1) {
+    return(1)
+  } else {
+    return(2)
+  }
+}
+```
+
