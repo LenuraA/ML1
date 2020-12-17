@@ -23,7 +23,7 @@ sg <- function(xl, eta = 0.2, lambda = 1/60) {
   l <- dim(xl)[1]
   n <- dim(xl)[2] - 1
   
-  # ñòàíäàðòíàÿ èíèöèàëèçàöèÿ âåñîâ w
+  
   w <- c(1/2, 1/2, 1/2)
   
   iterCount <- 0
