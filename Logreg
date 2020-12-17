@@ -18,12 +18,12 @@ trainingSamplePrepare <- function(xl)
 length.out = l), xl[, n + 1])
 }
 
-
+# функция потерь
 lossLog <- function(x)
 {
  return (log2(1 + exp(-x)))
 }
-
+# сигмоидная функция
 sigmoidFunction <- function(z)
 {
  return (1 / (1 + exp(-z)))
@@ -37,13 +37,13 @@ sg.LogRegression <- function(xl)
  iterCount <- 0
  lambda <- 1/l
 
- ## initialize Q
+ ## инициализация  Q
  Q <- 0
  for (i in 1:l)
  {
- ## calculate the scalar product <w,x>
+ ## вычислить скалярное произведение <w,x>
  wx <- sum(w * xl[i, 1:n]) 
- ## calculate a margin
+ 
  margin <- wx * xl[i, n + 1]
 
  Q <- Q + lossLog(margin)
@@ -51,7 +51,7 @@ sg.LogRegression <- function(xl)
 
  repeat
  {
- # select the random index from the error objectserrorIndexes
+ # выбираем  случайный индекс из объекта ошибки
  i <- sample(1:l, 1)
 
  iterCount <- iterCount + 1
@@ -60,17 +60,17 @@ sg.LogRegression <- function(xl)
  xi <- xl[i, 1:n]
  yi <- xl[i, n + 1]
 
- ## calculate the scalar product <w,xi>
+ ## вычислить скалярное произведение <w,x>
  wx <- sum(w * xi)
 
- ## make a gradient step
+ ## делаем градиентный шаг
  margin <- wx * yi
 
  ex <- lossLog(margin)
  eta <- 0.3#1 / iterCount
  w <- w + eta * xi * yi * sigmoidFunction(-wx * yi)
 
- ## Calculate a new Q
+ ## вычисляем новое Й 
  Qprev <- Q
  Q <- (1 - lambda) * Q + lambda * ex
 
