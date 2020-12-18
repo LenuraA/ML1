@@ -794,6 +794,8 @@ sigmoidFunction <- function(z)
 
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/reg.png)
 
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/reg1.1.png) 
+
 [Оглавление](#Оглавление)
 
 
