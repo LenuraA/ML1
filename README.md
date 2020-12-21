@@ -738,6 +738,65 @@ minimize = function(f,g,y,x,w,maxiter=100,nu=0.01,callback=callback) {
 
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/habbs.png)
 
+
+ [Оглавление](#Оглавление)
+ 
+ 
+### Персептрон Розенблатта
+
+ [Оглавление](#Оглавление)
+
+Будет считать, что признаки являются бинарными  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/форм70.png)  классы могут принимать значения +1 и -1. Тогда при классификации f(x) объекта x, возможны три случая:
+
+1. Если значение f(x) совпадает с y, тогда веса изменять не надо.
+
+2. Если значение f(х) = -1 и y = 1, то вектор весов увеличивается.
+
+3. Если значение f(х) = 1 и y = -1, то вектор весов уменьшается.
+
+Эти три случая объединяются в правило Хэбба. Правило обновления весов принимает следующий вид: ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/форм71.png)
+
+Следовательно, в алгоритме стохастического градиента заменяется шаг 6. В качестве функции потерь возьмем кусочно-линейную функцию: ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/форм72.png)
+
+Для данного правила доказывается теорема сходимости (Новикова), которая справедлива не только для бинарных, но и для произвольных действительных признаков.
+
+```R
+# функция потерь
+Perceptron <- function(x)
+{
+  return (max(-x,0))
+} 
+
+ repeat {
+
+      # случайным образом выбираем индекс из объектов ошибки
+      i <- sample(1:l, 1)
+      iterCount <- iterCount + 1
+      xi <- xl[i, 1:n]
+      yi <- xl[i, n + 1]
+      
+      wx <- crossprod(w, xi)
+      margin <- wx * yi
+      ex <- Perceptron(margin)
+      w <- w + eta * yi * xi ##расчитываем градиентный шаг для итерации
+      
+      Qprev <- Q
+      Q <- (1 - lambda) * Q + lambda * ex ##обновляем Q
+      abline(a = w[3] / w[2], b = -w[1] / w[2],  col = "black")
+ 
+      if(abs(Qprev - Q) < 1e-6) { 
+      break
+    }
+  }
+  return(w) 
+``` 
+
+Пример работы алгоритма:
+
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/pr.png)
+
+![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/Pr1.png)
+
  [Оглавление](#Оглавление)
  
  ### Логистическая регрессия
