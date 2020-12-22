@@ -852,7 +852,7 @@ sigmoidFunction <- function(z)
 
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/logQ.png)
 
-![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/reg1.1.png) 
+ 
 
 [Оглавление](#Оглавление)
 
