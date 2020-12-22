@@ -736,15 +736,8 @@ minimize = function(f,g,y,x,w,maxiter=100,nu=0.01,callback=callback) {
 
 ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/adaline.png)
 
-## Правило Хебба 
-Правило Хебба Имеет кусочно-линейную функцию потерь ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2064.png)  и правило Хебба для обновления весов  ![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/формула%2065.png)
-
-
-![screenshot of sample](https://github.com/ZaraL3/ML1/blob/master/image/habbs.png)
-
 
  [Оглавление](#Оглавление)
- 
  
 ### Персептрон Розенблатта
 
